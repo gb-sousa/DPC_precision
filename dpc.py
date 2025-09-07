@@ -165,6 +165,10 @@ class DPClustering:
         
         self.rhos = np.random.uniform(lbs, ubs)
         
+        #2nd renormalization
+        rescale_factor = np.max(self.rhos_cached)/np.max(self.rhos)
+        self.rhos *= rescale_factor
+        
         return self.rhos
     
     def nearest_highers(self):
